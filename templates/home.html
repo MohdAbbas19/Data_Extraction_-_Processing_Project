@@ -1,0 +1,156 @@
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="styl1.css">
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #1db1ec;
+		}
+		
+		.container {
+			width: 80%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		
+		header {
+			background: #333;
+			color: #fff;
+			padding-top: 30px;
+			min-height: 70px;
+			border-bottom: #bbb 1px solid;
+		}
+		
+		header a {
+			color: #fff;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 16px;
+		}
+		
+		header ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			overflow: hidden;
+		}
+		
+		header #brandname {
+			float: left;
+			display: inline;
+		}
+		
+		header #brandname h1 {
+			margin: 0;
+		}
+		
+		header nav {
+			float: right;
+			margin-top: 10px;
+		}
+		
+		header .main-nav li {
+			display: inline;
+			margin-left: 40px;
+		}
+		
+		header .main-nav li a {
+			text-decoration: none;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 90%;
+		}
+		
+		header .main-nav li a:hover {
+			color: #bbb;
+		}
+		
+		.ml-container {
+			margin: 50px auto;
+			width: 60%;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.ml-container textarea {
+			width: 80%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+		
+		.ml-container input.btn-info {
+			padding: 10px;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		
+		.result-container {
+			margin-top: 20px;
+		}
+		
+		.result-text {
+			font-size: 18px;
+			margin-top: 10px;
+		}
+		
+		.result-text.spam {
+			color: red;
+		}
+		
+		.result-text.ham {
+			color: blue;
+		}
+		
+	</style>
+</head>
+<body font-family: 'Arial', sans-serif;margin: 0;padding: 0;background-color: #1db1ec;>
+	
+	<header>
+		<div class="container">
+		<div id="brandname">
+		</div>
+		<center>
+			<h1><b><u>Machine Learning model Fake News Detection</u></b></h1>
+			</center>
+
+	</div>
+	</header>
+
+	<div class="ml-container">
+
+		<form action="/predict" method="POST">
+		<center><p><b>Enter Your News Here</b></p></center>
+		
+		<center><textarea name="News" rows="4" cols="50"></textarea></center>
+		<br/>
+
+		<center><input type="submit" class="btn-info" value="predict"></center>
+		
+	</form>
+
+	
+		<div> 
+	<center>{% if data == 0 %}
+		<h2 style="color:red;">Fake</h2>
+	{% elif data == 1 %}
+		<h2 style="color:blue;">Real</h2>
+	{% else %}
+		<h2>   </h2>
+	{% endif %}
+	</center>
+</div>
+	</div>
+	
+	
+</body>
+</html>
